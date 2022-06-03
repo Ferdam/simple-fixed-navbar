@@ -1,0 +1,68 @@
+/* ---- Simple styling (not really important) ---- */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #F2F2F2;
+}
+nav {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+}
+nav a {
+    width: 60px;
+    height: fit-content;
+    text-align: center;
+    padding: 6px 16px;
+    border-radius: 25px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    background-color: white;
+    color: black;
+}
+p {
+    font-size: 16px;
+    
+    text-align: justify;
+}
+section {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 10px 40px;
+    margin: 0 auto;
+    max-width: 1000px;
+    background-color: white;
+}
+
+
+/* ---- Actual code that makes fixed navbar work properly ---- */
+
+html, body {
+    /* ---- Make root elements like body and html use 100% of available space ---- */
+    height: 100%;
+    /* ---- Take scrolling responsibility out of the body/html element ---- */
+    overflow: hidden;
+}
+div.page-container {
+    /* ---- Make height use 100% of available space ---- */
+    height: 100%;
+    /* ---- Enable flex so we can use flex-grow: 1 on main element ---- */
+    display: flex;
+    flex-flow: column;
+}
+main {
+    /* ---- Make main element fill the rest of page height ---- */
+    flex-grow: 1;
+    /* ---- Give the scrolling responsibility back but only to main element ---- */
+    overflow: hidden scroll;
+    scroll-behavior: smooth;
+}
